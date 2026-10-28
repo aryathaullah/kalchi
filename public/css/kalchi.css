@@ -1,0 +1,313 @@
+:root{
+  color-scheme: light;
+  --red:#8C0004; --red2:#EE2522; --cream:#FBF1E5;
+  --bg:#FBF1E5; --ink:#8C0004; --card:#FFF9F1; --muted:#6b3a35;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){color-scheme:dark;--bg:#2a0406;--ink:#FBF1E5;--card:#FBF1E5;--muted:#e9d2c2}
+}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#2a0406;--ink:#FBF1E5;--card:#FBF1E5;--muted:#e9d2c2}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Courier Prime",ui-monospace,monospace;line-height:1.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+main{max-width:560px;margin:0 auto;padding:28px 20px 40px}
+.cut{font-family:"Playfair Display",serif;font-weight:700;display:inline-block;background:var(--red);color:var(--cream);
+  padding:.05em .28em .1em;box-shadow:2px 3px 0 rgba(0,0,0,.18);line-height:1.05}
+.cut.alt{background:var(--cream);color:var(--red);font-style:italic}
+.r1{transform:rotate(-2.5deg)}.r2{transform:rotate(1.8deg)}.r3{transform:rotate(-1deg)}
+.hero{text-align:center;padding-top:8px}
+.photo{position:relative;display:block;width:90%;max-width:400px;margin:0 auto 26px;background:#fff;padding:10px 10px 14px;
+  transform:rotate(-2deg);box-shadow:0 8px 20px rgba(60,0,0,.25)}
+.photo img{display:block;width:100%;height:auto}
+.photo::before{content:"";position:absolute;top:-14px;left:50%;width:90px;height:28px;margin-left:-45px;background:rgba(222,205,170,.85);transform:rotate(3deg)}
+h1{margin:0;font-size:clamp(40px,13vw,64px);font-weight:700}
+h1 .cut{margin:0 2px 6px}
+.tag{margin:14px 0 0;color:var(--muted);font-size:15px}
+h2{margin:44px 0 16px;font-size:30px}
+.links{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.links a{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;
+  background:var(--card);color:var(--red);border:2px solid var(--red);padding:14px 16px;
+  box-shadow:3px 4px 0 var(--red);transition:transform .15s,box-shadow .15s,background .15s,color .15s}
+.links li:nth-child(odd) a{transform:rotate(-.7deg)}
+.links li:nth-child(even) a{transform:rotate(.7deg)}
+.links a:hover,.links a:focus-visible{background:var(--red);color:var(--cream);transform:rotate(0) translate(2px,2px);box-shadow:1px 2px 0 var(--red2);outline:none}
+.links a:focus-visible{outline:3px solid var(--red2);outline-offset:3px}
+.name{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;line-height:1.15}
+.sub{display:block;font-size:13px;opacity:.8;margin-top:2px;word-break:break-all}
+.go{font-family:"Playfair Display",serif;font-size:26px;flex:none}
+.stamp{margin-top:48px;text-align:center;font-size:13px;color:var(--muted)}
+.stamp b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.links a{transition:none}}
+
+.r1{--rot:-2.5deg}.r2{--rot:1.8deg}.r3{--rot:-1deg}
+@keyframes stickerPop{
+  0%{opacity:0;transform:translateY(-30px) rotate(calc(var(--rot) - 14deg)) scale(.4)}
+  60%{opacity:1;transform:translateY(4px) rotate(calc(var(--rot) + 3deg)) scale(1.08)}
+  100%{opacity:1;transform:translateY(0) rotate(var(--rot)) scale(1)}
+}
+@keyframes photoIn{
+  0%{opacity:0;transform:translateY(-60px) rotate(-9deg) scale(.9)}
+  65%{opacity:1;transform:translateY(6px) rotate(-1deg) scale(1.02)}
+  100%{opacity:1;transform:translateY(0) rotate(-2deg) scale(1)}
+}
+@keyframes sway{
+  from{transform:translateY(0) rotate(-2deg)}
+  to{transform:translateY(-6px) rotate(-.6deg)}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
+
+.photo{animation:photoIn .9s cubic-bezier(.25,1.2,.4,1) .1s both, sway 5s ease-in-out 1.2s infinite alternate}
+.photo::before{animation:fadeUp .5s ease .8s both}
+h1 .cut{animation:stickerPop .7s cubic-bezier(.3,1.3,.5,1) both}
+h1 .r1{animation-delay:.55s}
+h1 .r2{animation-delay:.75s}
+.tag{animation:fadeUp .7s ease 1s both}
+
+.js h2,.js .links li,.js .stamp{opacity:0;transform:translateY(26px);
+  transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1.15);transition-delay:var(--d,0s)}
+.js h2.in,.js .links li.in,.js .stamp.in{opacity:1;transform:none}
+.js h2 .cut{transition:transform .5s cubic-bezier(.3,1.5,.5,1) calc(var(--d,0s) + .15s)}
+.js h2:not(.in) .cut{transform:rotate(calc(var(--rot) - 8deg)) scale(.7)}
+.js h2.in .cut{transform:rotate(var(--rot))}
+
+.links a:active{transform:scale(.97) rotate(0);box-shadow:0 1px 0 var(--red)}
+.links a:hover .go,.links a:focus-visible .go{animation:nudge .7s ease-in-out infinite}
+.go{display:inline-block;transition:transform .2s}
+.photo{transition:filter .3s}
+.photo:hover{filter:saturate(1.15)}
+.cut{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+h1 .cut:hover{transform:rotate(0) scale(1.07)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js h2,.js .links li,.js .stamp{opacity:1;transform:none}
+  .js h2:not(.in) .cut{transform:rotate(var(--rot))}
+}
+
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 62px);scroll-behavior:smooth}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:2px dashed var(--ink)}
+
+
+
+/* ===== NAVBAR KAL-CHI ===== */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #FBF1E5;
+    border-bottom: 2px dashed #8C0004;
+}
+
+.nav div {
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.nav div::-webkit-scrollbar {
+    display: none;
+}
+
+.nav .pill {
+    flex: none;
+    display: inline-block;
+    text-decoration: none;
+    color: #8C0004;
+    background: transparent;
+    border: 2px solid #8C0004;
+    padding: 5px 11px;
+    font-family: "Courier Prime", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s,
+                transform 0.15s;
+}
+
+.nav .pill:hover,
+.nav .pill:focus-visible {
+    background: #8C0004;
+    color: #FBF1E5;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.nav .pill.shop {
+    background: #8C0004;
+    color: #FBF1E5;
+    border-color: #8C0004;
+}
+
+
+/* ===== PRODUCTS ===== */
+
+.products {
+    max-width: 404px;
+    margin: 0 auto;
+    padding: 35px 20px 45px;
+    color: #8C0004;
+}
+
+.product-eyebrow {
+    margin: 0 0 8px;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.product-heading {
+    margin: 0 0 10px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    line-height: 1.3;
+    color: #8C0004;
+}
+
+.product-intro {
+    margin: 0 auto 26px;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* Grid kartu */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 14px;
+}
+
+.product-card {
+    min-width: 0;
+    background: #FFF9F1;
+    border: 1px solid #8C0004;
+    box-shadow: 4px 4px 0 #8C0004;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Ilustrasi produk */
+
+.product-art {
+    position: relative;
+    min-height: 158px;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F3D9B6;
+    border-bottom: 1px solid #8C0004;
+}
+
+.product-card:nth-child(2) .product-art {
+    background: #F6B8AE;
+}
+
+.product-card:nth-child(3) .product-art {
+    background: #DDE8B9;
+}
+
+.product-card:nth-child(4) .product-art {
+    background: #F3D2A0;
+}
+
+.product-number {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.product-symbol {
+    font-size: 46px;
+    line-height: 1.2;
+    color: #8C0004;
+}
+
+.product-note {
+    position: absolute;
+    right: 7px;
+    bottom: 8px;
+    max-width: 90%;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* Informasi produk */
+
+.product-info {
+    padding: 12px;
+}
+
+.product-type {
+    margin: 0 0 8px;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+}
+
+.product-info h3 {
+    margin: 0 0 8px;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.product-description {
+    margin: 0;
+    font-family: "Courier Prime", monospace;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* Pesan jika produk kosong */
+
+.product-grid > p {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+/* Layar sangat sempit */
+
+@media (max-width: 360px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-heading {
+        font-size: 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card {
+        transition: none;
+    }
+}
