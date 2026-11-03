@@ -1,0 +1,78 @@
+.product-card .art {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--red);
+}
+
+.product-card:nth-child(3n + 1) .art {
+    background: #f1d7c4;
+}
+
+.product-card:nth-child(3n + 2) .art {
+    background: #f5c9bd;
+}
+
+.product-card:nth-child(3n) .art {
+    background: #e9d8b9;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pstamp {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--red);
+    color: var(--cream);
+    padding: 6px 9px;
+    font: 700 12px/1.25 "Playfair Display", serif;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, .2);
+}
+
+.glyph {
+    font-size: 100px;
+    color: var(--red2);
+    transform: rotate(-12deg);
+    text-shadow: 5px 6px 0 rgba(140, 0, 4, .15);
+}
+
+.note {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    max-width: 60%;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: right;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 4px 4px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    opacity: .75;
+}
+
+/* ===== Responsif: desktop ===== */
+@media (min-width: 1024px) {
+    .product-card .art {
+        height: 224px;
+    }
+}
