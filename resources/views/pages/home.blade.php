@@ -8,7 +8,7 @@
 
     <header class="hero" id="home">
         <span class="photo">
-            <img src="{{ asset('public/image/logo_kalchi.jpeg') }}"
+            <img src="{{ asset('image/logo/logo.kalchi.jpeg') }}"
                 alt="Ilustrasi logo Kal-Chi dengan tagline Taste of Korean Flavour">
             <span class="circle">WATERMELON<br>RIND<br>REIMAGINED</span>
         </span>
