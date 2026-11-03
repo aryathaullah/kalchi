@@ -6,10 +6,9 @@
 
 @section('content')
 
-    {{-- Hero --}}
     <header class="hero" id="home">
         <span class="photo">
-            <img src="{{ asset('images/logo_kalchi.webp') }}"
+            <img src="{{ asset('public/image/logo_kalchi.jpeg') }}"
                 alt="Ilustrasi logo Kal-Chi dengan tagline Taste of Korean Flavour">
             <span class="circle">WATERMELON<br>RIND<br>REIMAGINED</span>
         </span>
