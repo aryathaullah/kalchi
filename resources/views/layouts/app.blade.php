@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#FBF1E5">
     <meta name="description" content="@yield('description', 'Kal-Chi, taste of Korean flavour. Kimchi inovatif dari kulit semangka.')">
 
-    <title>@yield('title', 'Kal-Chi | Watermelon, Reimagined')</title>
+    <title>@yield('title', 'Home | Kal-Chi')</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

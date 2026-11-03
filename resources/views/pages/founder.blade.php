@@ -18,7 +18,7 @@
             </p>
         </header>
 
-        <div class="card-grid">
+        <div class="card-grid founder-grid">
             @forelse ($founders as $founder)
                 <article class="founder-card">
                     <div class="founder-photo">

@@ -13,11 +13,11 @@
             <a class="pill {{ request()->routeIs('home') ? 'active' : '' }}"
                href="{{ route('home') }}">Home</a>
 
-            <a class="pill {{ request()->routeIs('product') ? 'active' : '' }}"
-               href="{{ route('product') }}">Product</a>
+            <a class="pill {{ request()->routeIs('pages.product') ? 'active' : '' }}"
+               href="{{ route('pages.product') }}">Product</a>
 
-            <a class="pill {{ request()->routeIs('founder') ? 'active' : '' }}"
-               href="{{ route('founder') }}">Founder</a>
+            <a class="pill {{ request()->routeIs('pages.founder') ? 'active' : '' }}"
+               href="{{ route('pages.founder') }}">Founder</a>
 
             <a class="pill shop"
                href="https://id.shp.ee/NqLQqcjm"

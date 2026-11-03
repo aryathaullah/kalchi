@@ -2,44 +2,36 @@
 
 namespace Database\Seeders;
 
-use App\Models\Product;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
 
-class ProductSeeder extends Seeder
-{
-    public function run(): void
-    {
-        $products = [
-            [
-                'name' => 'Kal-Chi',
-                'description' => 'Kimchi berbahan kulit semangka dengan cita rasa Korea. Pilihan unik untuk melengkapi makananmu.',
-                'type' => 'Savoury',
-                'note_text' => 'TASTE OF KOREAN FLAVOUR',
-            ],
-            [
-                'name' => 'Kal-Shi',
-                'description' => 'Watermelon slushy yang segar untuk menemani waktu santai, kuliah, atau jalan bareng teman.',
-                'type' => 'Refreshing',
-                'note_text' => 'COOL DOWN YOUR CRAVINGS',
-            ],
-            [
-                'name' => 'Fresh Watermelon',
-                'description' => 'Potongan semangka segar yang praktis untuk menjadi camilan kapan saja.',
-                'type' => 'Fresh Cut',
-                'note_text' => 'SWEET, JUICY & REFRESHING',
-            ],
-            [
-                'name' => 'Kal-Dip',
-                'description' => 'Potongan semangka segar yang disajikan dengan bumbu dip rujak bubuk. Asin, pedas, dan menyegarkan.',
-                'type' => 'Fresh Cut',
-                'note_text' => 'SALTY, SPICY & REFRESHING',
-            ],
-        ];
+class ProductSeeder extends Seeder{
+    public function run(): void{
+        Product::updateOrCreate([
+            'name' => 'Kal-Chi',
+            'category' => 'Savoury',
+            'tagline' => 'Taste of Korean Flavour',
+            'description' => 'Kimchi berbahan kulit semangka dengan cita rasa Korea. Pilihan unik untuk melengkapi makananmu.',
+            'image' => null,
+            'is_active' => true,
+        ]);
 
-        foreach ($products as $product) {
-            Product::Create(
-                $product
-            );
-        }
+        Product::updateOrCreate([
+            'name' => 'Kal-Shi',
+            'category' => 'Refreshing',
+            'tagline' => 'Slushy Cool Down Your Cravings',
+            'description' => 'Watermelon slushy yang segar untuk menemani waktu santai, kuliah, atau jalan bareng teman.',
+            'image' => null,
+            'is_active' => true,
+        ]);
+
+        Product::updateOrCreate([
+            'name' => 'Fresh Watermelon',
+            'category' => 'Fresh Cut',
+            'tagline' => 'Sweet, Juicy & Refreshing',
+            'description' => 'Potongan semangka segar yang praktis untuk jadi camilan kapan saja.',
+            'image' => null,
+            'is_active' => true,
+        ]);
     }
 }
