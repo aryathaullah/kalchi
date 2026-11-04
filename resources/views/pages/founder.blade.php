@@ -20,18 +20,11 @@
 
         <div class="card-grid founder-grid">
             @forelse ($founders as $founder)
-                @php
-                    $photoPath = $founder->photo ? str_replace('public/', '', $founder->photo) : null;
-                @endphp
+            
                 <article class="founder-card">
                     <div class="founder-photo">
-                        @if ($photoPath && file_exists(public_path($photoPath)))
-                            <img src="{{ asset($photoPath) }}" alt="Foto {{ $founder->name }}">
-                        @else
-                            <span class="founder-initial" aria-hidden="true">
-                                {{ mb_substr($founder->name, 0, 1) }}
-                            </span>
-                        @endif
+
+                        <img src="{{ asset($founder->photo) }}" alt="Foto {{ $founder->name }}">
                     </div>
 
                     <p class="founder-position">{{ $founder->position }}</p>

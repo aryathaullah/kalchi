@@ -8,6 +8,8 @@ use App\Http\Controllers\FounderController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 Route::get('/products', [ProductController::class, 'index'])->name('pages.product');
 
 Route::get('/founders', [FounderController::class, 'index'])->name('pages.founder');

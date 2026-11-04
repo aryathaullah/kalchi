@@ -21,12 +21,8 @@
             @forelse ($products as $product)
                 <article class="product-card">
                     <div class="art">
-                        @if ($product->image && file_exists(public_path($product->image)))
-                            <img class="product-img" src="{{ asset($product->image) }}" alt="{{ $product->name }}">
-                        @else
-                            <span class="pstamp">{{ $product->name }}</span>
-                            <span class="glyph" aria-hidden="true">{{ $symbols[$loop->index % 3] }}</span>
-                        @endif
+                        
+                        <img class="product-img" src="{{ asset($product->image) }}" alt="{{ $product->name }}">
 
                         <span class="note">{{ $product->tagline }}</span>
                     </div>
