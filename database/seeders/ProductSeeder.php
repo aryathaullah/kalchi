@@ -7,13 +7,13 @@ use App\Models\Product;
 
 class ProductSeeder extends Seeder{
     public function run(): void{
+        
         Product::updateOrCreate([
             'name' => 'Kal-Chi',
             'category' => 'Savoury',
             'tagline' => 'Taste of Korean Flavour',
             'description' => 'Kimchi berbahan kulit semangka dengan cita rasa Korea. Pilihan unik untuk melengkapi makananmu.',
             'image' => 'image/products/Kalchi_Kimchi.jpeg',
-            'is_active' => true,
         ]);
 
         Product::updateOrCreate([
@@ -22,7 +22,6 @@ class ProductSeeder extends Seeder{
             'tagline' => 'Slushy Cool Down Your Cravings',
             'description' => 'Watermelon slushy yang segar untuk menemani waktu santai, kuliah, atau jalan bareng teman.',
             'image' => 'image/products/Kalchi_Slushie.jpeg',
-            'is_active' => true,
         ]);
 
         Product::updateOrCreate([
@@ -31,7 +30,6 @@ class ProductSeeder extends Seeder{
             'tagline' => 'Sweet, Juicy & Refreshing',
             'description' => 'Potongan semangka segar yang praktis untuk jadi camilan kapan saja.',
             'image' => 'image/products/Kalchi_Slice.jpeg',
-            'is_active' => true,
         ]);
     }
 }

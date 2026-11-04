@@ -13,10 +13,5 @@ class Product extends Model{
         'tagline',
         'description',
         'image',
-        'is_active',
-    ];
-
-    protected $casts = [
-        'is_active' => 'boolean',
     ];
 }

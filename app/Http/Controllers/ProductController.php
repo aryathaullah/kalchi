@@ -9,8 +9,8 @@ class ProductController extends Controller
 {
     public function index(){
         return view('pages.product', [
-            'title' => 'OUR PRODUCTS',
-            'products' => Product::where('is_active', true)->get(),
+            'title' => 'Product | Kal-Chi',
+            'products' => Product::all(),
         ]);
     }
 }

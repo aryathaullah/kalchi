@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('category', 50)->default('general');
             $table->string('question', 255);
             $table->text('answer');
-            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

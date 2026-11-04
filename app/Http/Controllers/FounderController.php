@@ -10,7 +10,7 @@ class FounderController extends Controller{
     public function index(){
 
         return view('pages.founder', [
-            'title' => 'OUR FOUNDERS',
+            'title' => 'Founder | Kal-Chi',
             'founders' => Founder::all(),
         ]);
 

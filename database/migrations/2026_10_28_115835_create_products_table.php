@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('tagline', 255)->nullable();
             $table->text('description');
             $table->string('image', 255)->nullable();
-            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

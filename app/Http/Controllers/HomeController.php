@@ -9,8 +9,8 @@ class HomeController extends Controller{
 
     public function index(){
         return view('pages.home', [
-            'title' => 'HOME | KAL-CHI',
-            'faqs' => Faq::where('is_active', true)->get(),
+            'title' => 'Home | Kal-Chi',
+            'faqs' => Faq::all(),
         ]);
     }
 }
