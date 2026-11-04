@@ -11,15 +11,11 @@
     <section aria-labelledby="pr">
         <header class="page-head">
             <p class="eyebrow">MADE FOR YOUR CRAVINGS</p>
-            <h1 id="pr"><span class="cut r2">The Kal-Chi lineup</span></h1>
+            <h1 id="pr"><span class="cut r2">The Kal-Chi Lineup</span></h1>
             <p class="lead">
                 Find your kind of craving. Dari rasa Korea yang bold sampai semangka yang fresh, pilih favoritmu.
             </p>
         </header>
-
-        @php
-            $symbols = ['▰', '✳', '◒'];
-        @endphp
 
         <div class="card-grid">
             @forelse ($products as $product)
