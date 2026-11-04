@@ -12,7 +12,7 @@ class ProductSeeder extends Seeder{
             'category' => 'Savoury',
             'tagline' => 'Taste of Korean Flavour',
             'description' => 'Kimchi berbahan kulit semangka dengan cita rasa Korea. Pilihan unik untuk melengkapi makananmu.',
-            'image' =>  "image\products\Kalchi_Kimchi.jpeg",
+            'image' => 'image/products/Kalchi_Kimchi.jpeg',
             'is_active' => true,
         ]);
 
@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder{
             'category' => 'Refreshing',
             'tagline' => 'Slushy Cool Down Your Cravings',
             'description' => 'Watermelon slushy yang segar untuk menemani waktu santai, kuliah, atau jalan bareng teman.',
-            'image' => "image\products\Kalchi_Slushie.jpeg",
+            'image' => 'image/products/Kalchi_Slushie.jpeg',
             'is_active' => true,
         ]);
 
@@ -30,7 +30,7 @@ class ProductSeeder extends Seeder{
             'category' => 'Fresh Cut',
             'tagline' => 'Sweet, Juicy & Refreshing',
             'description' => 'Potongan semangka segar yang praktis untuk jadi camilan kapan saja.',
-            'image' => "image\products\Kalchi_Slice.jpeg",
+            'image' => 'image/products/Kalchi_Slice.jpeg',
             'is_active' => true,
         ]);
     }
